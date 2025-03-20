@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: jenkins
+  name: jenkins-role
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/log", "services", "configmaps", "secrets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "statefulsets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources: ["jobs", "cronjobs"]
+    verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: jenkins
+  name: jenkins-rolebinding
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: jenkins
+roleRef:
+  kind: Role
+  name: jenkins-role
+  apiGroup: rbac.authorization.k8s.io
