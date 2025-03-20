@@ -1,0 +1,13 @@
+# Ignore large binary files
+argocd-linux-amd64
+
+# Ignore build outputs
+target/
+*.jar
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
