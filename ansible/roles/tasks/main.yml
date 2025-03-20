@@ -1,0 +1,5 @@
+- name: Authenticate with GCP
+  command: gcloud auth activate-service-account --key-file=jenkins-gke.json
+
+- name: Configure GKE Cluster
+  command: gcloud container clusters get-credentials my-gke-cluster --zone us-central1-a --project my-gcp-project

@@ -1,0 +1,2 @@
+- name: Apply Kubernetes Configurations
+  command: kubectl apply -f k8s/

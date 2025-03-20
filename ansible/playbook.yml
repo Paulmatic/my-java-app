@@ -1,0 +1,9 @@
+- name: Setup GKE and Deploy Java App
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  roles:
+    - setup-gke
+    - configure-k8s
+    - deploy-java-app

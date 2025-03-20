@@ -1,0 +1,13 @@
+- name: Build Java Application
+  command: mvn clean package -DskipTests
+  args:
+    chdir: /home/user/my-java-app
+
+- name: Build Docker Image
+  command: docker build -t us-central1-docker.pkg.dev/my-gcp-project/my-docker-repo/my-java-app:latest .
+
+- name: Push Image to Artifact Registry
+  command: docker push us-central1-docker.pkg.dev/my-gcp-project/my-docker-repo/my-java-app:latest
+
+- name: Deploy Application to GKE
+  command: kubectl apply -f k8s/
