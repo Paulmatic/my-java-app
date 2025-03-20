@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-java-app
+  namespace: argocd  # ArgoCD runs in 'argocd' namespace
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Paulmatic/my-java-app.git'  # Replace with your repo
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod  # The app runs in 'prod' namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

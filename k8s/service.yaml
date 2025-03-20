@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
-  namespace: prod
+  name: my-java-app-service
+  namespace: prod  # Ensure it's in the 'prod' namespace
 spec:
   selector:
-    app: my-app
+    app: my-java-app
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: LoadBalancer
+  type: LoadBalancer  # Exposes externally

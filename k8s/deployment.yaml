@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-java-app
-  namespace: prod  # Added namespace here
+  namespace: prod  # Ensure it's in the 'prod' namespace
 spec:
   replicas: 2
   selector:
@@ -18,4 +18,4 @@ spec:
           image: us-central1-docker.pkg.dev/civic-network-453215-s8/my-docker-repo/my-java-app:latest
           ports:
             - containerPort: 8080
-        
+          
