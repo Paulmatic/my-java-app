@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/Paulmatic/my-java-app.git'  # Replace with your repo
-    targetRevision: main
+    targetRevision: master
     path: k8s
   destination:
     server: https://kubernetes.default.svc
